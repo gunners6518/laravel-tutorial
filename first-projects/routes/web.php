@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return env('DB_DATABASE');
-});
+
+Route::get('products/about', [ProductsController::class, 'about']);
+
+Route::get(
+    '/products',
+    'App\Http\Controllers\ProductsController@index'
+);
