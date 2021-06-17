@@ -8,8 +8,7 @@ class ProductsController extends Controller
 {
 	public function index()
 	{
-		$title = "title";
-		return view('products.index', compact('title'));
+		return view('products.index');
 	}
 
 	public function about()
@@ -19,14 +18,16 @@ class ProductsController extends Controller
 
 	public function show($name)
 	{
-		$data = [
-			'iphone' => 'iPhone', //nameからiphoneを受け取ったらiPhoneで返す
-			'samsung' => 'Samsung'
-		];
+		// $data = [
+		// 	'iphone' => 'iPhone', //nameからiphoneを受け取ったらiPhoneで返す
+		// 	'samsung' => 'Samsung'
+		// ];
 
 
-		return view('products.index', [
-			'products' => $data[$name] ?? 'Products' . $name . 'nothing！'
-		]);
+		// return view('products.index', [
+		// 	'products' => $data[$name] ?? 'Products' . $name . 'nothing！'
+		// ]);
+
+		return $name;
 	}
 }

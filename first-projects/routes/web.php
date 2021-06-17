@@ -19,8 +19,18 @@ Route::get('products/about', [ProductsController::class, 'about']);
 Route::get(
 	'/products',
 	'App\Http\Controllers\ProductsController@index'
-);
+)->name('products');
 
-//動的な値を渡す(例：id)
-// Route::get('/products/{id}', [ProductsController::class, 'show']);
-Route::get('products/{name}', [ProductsController::class, 'show']);
+//→whereでrouteで渡すパラメーターに制限をかける
+//pattern interger
+// Route::get('/products/{id}', [ProductsController::class, 'show'])->where('id', '[0-9]+');
+
+//pattern string
+Route::get('/products/{name}', [ProductsController::class, 'show'])->where('name', '[a-zA-Z]+');
+
+
+//pattern multi
+Route::get('/products/{name}/{id}', [ProductsController::class, 'show'])->where([
+	'name' => '[a-z]+',
+	'id' => '[0-9]+'
+]);

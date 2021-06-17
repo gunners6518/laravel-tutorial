@@ -1,2 +1,2 @@
-<h1>{{ $products }}</h1>
-<p>あああああ</p>
+<p>Products</p>
+<a href="{{ route('products') }}">link</a>
