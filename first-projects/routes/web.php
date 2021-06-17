@@ -20,3 +20,6 @@ Route::get(
     '/products',
     'App\Http\Controllers\ProductsController@index'
 );
+
+//動的な値を渡す(例：id)
+Route::get('/products/{id}', [ProductsController::class, 'show']);
