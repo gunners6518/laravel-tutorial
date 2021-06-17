@@ -17,9 +17,10 @@ use App\Http\Controllers\ProductsController;
 Route::get('products/about', [ProductsController::class, 'about']);
 
 Route::get(
-    '/products',
-    'App\Http\Controllers\ProductsController@index'
+	'/products',
+	'App\Http\Controllers\ProductsController@index'
 );
 
 //動的な値を渡す(例：id)
-Route::get('/products/{id}', [ProductsController::class, 'show']);
+// Route::get('/products/{id}', [ProductsController::class, 'show']);
+Route::get('products/{name}', [ProductsController::class, 'show']);

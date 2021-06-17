@@ -17,8 +17,16 @@ class ProductsController extends Controller
 		return 'about page';
 	}
 
-	public function show($id)
+	public function show($name)
 	{
-		return $id;
+		$data = [
+			'iphone' => 'iPhone', //nameからiphoneを受け取ったらiPhoneで返す
+			'samsung' => 'Samsung'
+		];
+
+
+		return view('products.index', [
+			'products' => $data[$name] ?? 'Products' . $name . 'nothing！'
+		]);
 	}
 }
