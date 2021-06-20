@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,22 +16,23 @@ use App\Http\Controllers\ProductsController;
 
 
 Route::get('products/about', [ProductsController::class, 'about']);
+Route::get('posts/index', [PostController::class, 'index']);
 
-Route::get(
-	'/products',
-	'App\Http\Controllers\ProductsController@index'
-)->name('products');
+// Route::get(
+// 	'/products',
+// 	'App\Http\Controllers\ProductsController@index'
+// )->name('products');
 
 //→whereでrouteで渡すパラメーターに制限をかける
 //pattern interger
 // Route::get('/products/{id}', [ProductsController::class, 'show'])->where('id', '[0-9]+');
 
 //pattern string
-Route::get('/products/{name}', [ProductsController::class, 'show'])->where('name', '[a-zA-Z]+');
+// Route::get('/products/{name}', [ProductsController::class, 'show'])->where('name', '[a-zA-Z]+');
 
 
 //pattern multi
-Route::get('/products/{name}/{id}', [ProductsController::class, 'show'])->where([
-	'name' => '[a-z]+',
-	'id' => '[0-9]+'
-]);
+// Route::get('/products/{name}/{id}', [ProductsController::class, 'show'])->where([
+// 	'name' => '[a-z]+',
+// 	'id' => '[0-9]+'
+// ]);
