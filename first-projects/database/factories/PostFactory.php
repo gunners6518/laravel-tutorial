@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class PostFactory extends Factory
 {
@@ -12,7 +13,7 @@ class PostFactory extends Factory
      *
      * @var string
      */
-    protected $model = Post::class;
+    protected $model = \App\Models\Post::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +23,10 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->title(),
+            'body' => $this->faker->paragraph(),
+            'created_at' => now(),
+
         ];
     }
 }
