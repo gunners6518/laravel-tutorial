@@ -19,3 +19,12 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         return $request->user();
     });
 });
+
+
+Route::get('hello', function () {
+    $message = 'hello';
+
+    return response()->json([
+        'message' => $message
+    ]);
+});
