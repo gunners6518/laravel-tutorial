@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CreateTaskAction;
+use App\Http\Controllers\GetTaskAction;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,5 @@ Route::get('hello', function () {
 });
 
 Route::post('/tasks', CreateTaskAction::class);
+
+Route::get('/tasks/{id}', GetTaskAction::class)->where('id', '[0-9]+');
